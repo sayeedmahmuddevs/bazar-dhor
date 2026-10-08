@@ -1,16 +1,12 @@
-import Image from "next/image";
-
-
-export default function Home() {
+function NewDate() {
   const date = new Date().toLocaleDateString("bn-BD", {
     weekday: "long",
     year: "numeric",
     day: "numeric",
     month: "long",
   });
-  return (
-    <div>
-      
-    </div>
-  );
+
+  return <span>{date}</span>;
 }
+
+export default NewDate;
