@@ -1,7 +1,26 @@
+import Card from "@/component/Card";
 import Image from "next/image";
 
+interface DataType{
+  id:number
+  nameBn: string
+  image:string
+  change : {
+    dir:string
+    pct:number
+  }
+}
 
-export default function Home() {
+
+ export default async function Home() {
+
+     const res = await fetch ("https://api.abcz.workers.dev/api/bazardor/products");
+    const data : DataType[] = await res.json();
+
+    const sortDataUp = data.filter(car => car.change.dir === "up").sort((a,b) => b.change.pct - a.change.pct )
+    const sortDataDown = data.filter(car => car.change.dir === "down").sort((a,b) => b.change.pct - a.change.pct)
+    
+
   const date = new Date().toLocaleDateString("bn-BD", {
     weekday: "long",
     year: "numeric",
@@ -34,6 +53,24 @@ export default function Home() {
           
         </div>
       </div>
+
+
+
+    <div className="grid grid-cols-3 gap-4">
+      <Card/>
+    </div>
+
+    <div>
+      <h1>আজ দাম বেড়েছে</h1>
+
+      <div>
+        {sortDataUp.slice(0,6).map(card => (
+           <Card>bad</Card>
+        ))}
+
+      </div>
+    </div>
+
     </div>
   );
 }
