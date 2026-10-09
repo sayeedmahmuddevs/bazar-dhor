@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import NavBar from './NavBar';
+import Link from 'next/link';
 
 
 
@@ -14,13 +15,16 @@ function Header() {
 
     
   return (
-    <div className='max-w-7xl mx-auto px-2 w-full mt-2'>
+    <div className='max-w-7xl mx-auto px-2 w-full pt-2 '>
       <div className='flex justify-between items-center'>
         <div className='flex gap-2'>
+          <Link href="/">
             <div className='bg-green-400 p-2  rounded-xl flex justify-center items-center w-13 h-13'>
                 <Image src="/logo-icon.png" alt="Logo" width={50} height={50} />
             </div>
+          </Link>
             <div>
+            
                 <h1 className='text-2xl font-bold '>
                     বাজার ধর
                 </h1>

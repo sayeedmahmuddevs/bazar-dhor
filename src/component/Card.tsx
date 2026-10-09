@@ -1,15 +1,6 @@
-
+import { ProductItem } from "@/ProductType";
 interface CardType {
-  card: {
-    id: number;
-    nameBn: string;
-    image: string;
-    change: {
-      dir: string;
-      pct: number;
-    };
-    today: number
-  };
+  card: ProductItem
 }
 
 async function Card({ card }: CardType) {

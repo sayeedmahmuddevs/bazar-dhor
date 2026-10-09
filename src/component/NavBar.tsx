@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 interface categoriesType{
     id: string
     slug : string
@@ -10,9 +12,9 @@ async function NavBar() {
     const data :categoriesType[] = await res.json() 
     console.log(data)
   return (
-    <div className="flex gap-5 mt-4">
+    <div className="flex gap-5 mt-4 mb-2">
         {data.map((fruit) => {
-           return <p key={fruit.id}>{fruit.icon} {" "} {fruit.nameBn}</p>
+           return <Link key={fruit.id} href={`/categories/${fruit.id}`}> <p >{fruit.icon} {" "} {fruit.nameBn}</p></Link>
         })}
       
     </div>

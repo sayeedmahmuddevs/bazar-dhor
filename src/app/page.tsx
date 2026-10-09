@@ -1,22 +1,14 @@
 import Card from "@/component/Card";
 import Image from "next/image";
+import { ProductItem } from "@/ProductType";
 
-interface DataType{
-  id:number
-  nameBn: string
-  image:string
-  change : {
-    dir:string
-    pct:number
-  }
-  today:number
-}
+
 
 
  export default async function Home() {
 
      const res = await fetch ("https://api.abcz.workers.dev/api/bazardor/products");
-    const data : DataType[] = await res.json();
+    const data : ProductItem[] = await res.json();
 
     const sortDataUp = data.filter(car => car.change.dir === "up").sort((a,b) => b.change.pct - a.change.pct )
     const sortDataDown = data.filter(car => car.change.dir === "down").sort((a,b) => b.change.pct - a.change.pct)

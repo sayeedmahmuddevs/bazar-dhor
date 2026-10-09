@@ -23,14 +23,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col bg-gray-400">
 
-        <header>
+        <header className="fixed z-100 px-30 w-full bg-white border-b-3 border-gray-300 ">
           <Header/>
-          <hr className="border-2 border-t border-gray-300 mt-3" />
         </header>
         <Marquee/>
 
 
-      <main className="bg-gray-100 dark:bg-gray-800 mt-3">
+      <main className="bg-gray-100 dark:bg-gray-800 mt-2">
         <div className="max-w-7xl mx-auto w-full">
           {children}
 

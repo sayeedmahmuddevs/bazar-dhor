@@ -1,23 +1,17 @@
 import MarqueeText from "react-marquee-text"
+import { ProductItem } from "@/ProductType"
 
 
-interface MarqueeType{
-    id:number
-    nameBn: string
-    categoryIcon: string
-    change:{
-      pct:number
-    }
-}
+
 
 async function Marquee() {
     const res = await fetch ("https://api.abcz.workers.dev/api/bazardor/products")
-    const data : MarqueeType[] = await res.json()
+    const data : ProductItem[] = await res.json()
     console.log(data)
 
   return (
     <MarqueeText>
-        <div className="flex gap-10 mt-2 ">
+        <div className="flex gap-10 mt-32 ">
       {data.map(card =>(
         <p key={card.id}><span className="px-2 py-1 rounded-lg">
           {card.categoryIcon} {" "} {card.nameBn} {" "}
