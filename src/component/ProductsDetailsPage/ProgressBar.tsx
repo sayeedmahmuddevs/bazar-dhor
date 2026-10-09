@@ -45,7 +45,7 @@ function ProgressBar({product} : ProgressBarType) {
               ) : (
                 <span className="font-bold text-green-500">{"কমেছে"}</span>
               )}{" "}
-              <span className='text-blue-500 text-2xl'>{priceChange}</span> টাকা
+              <span className='text-blue-500 text-2xl'>{Math.abs(priceChange)}</span> টাকা
             </p>
           </div>
         </div>

@@ -18,7 +18,7 @@ async function page({ params }: paramsTypes) {
   const singleProduct = data.find((pro) => String(pro.id) === String(id));
 
   return (
-    <div>
+    <div className="mb-5">
       {/* category list */}
       <div className="flex gap-2 my-5 items-center">
         <Link href={"/"}>

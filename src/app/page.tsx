@@ -21,7 +21,7 @@ import { ProductItem } from "@/ProductType";
     month: "long",
   });
   return (
-    <div>
+    <div className="mb-5">
       <div className=" bg-white rounded-2xl mt-8 p-4 ">
         <span className="bg-green-200 rounded-xl px-2 py-1 text-green-600">
           {date}
