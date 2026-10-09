@@ -5,6 +5,9 @@ interface MarqueeType{
     id:number
     nameBn: string
     categoryIcon: string
+    change:{
+      pct:number
+    }
 }
 
 async function Marquee() {
@@ -15,8 +18,10 @@ async function Marquee() {
   return (
     <MarqueeText>
         <div className="flex gap-10 mt-2 ">
-      {data.map(cat =>(
-        <p key={cat.id}>{cat.categoryIcon} {" "} {cat.nameBn}</p>
+      {data.map(card =>(
+        <p key={card.id}><span className="px-2 py-1 rounded-lg">
+          {card.categoryIcon} {" "} {card.nameBn} {" "}
+          {card.change.pct < 0 ? <span className="text-green-700">▼ {Math.abs(card.change.pct)} % </span> : <span className="text-red-600">▲  {Math.abs(card.change.pct)} % </span>} </span> </p>
       ))}
     </div>
 
