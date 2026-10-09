@@ -18,7 +18,8 @@ async function page({ params }: PageProps) {
   console.log(filterCategories);
 
   return (
-    <div className="mt-">
+    <div className="h-110 mt-5">
+      <h1>{slug}</h1>
       <div className="grid grid-cols-3 gap-10">
         {filterCategories.map((pro) => (
           <Card key={pro.id} card={pro} />
