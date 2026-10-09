@@ -9,6 +9,7 @@ interface DataType{
     dir:string
     pct:number
   }
+  today:number
 }
 
 
@@ -55,21 +56,43 @@ interface DataType{
       </div>
 
 
+    <div className="mt-10">
+      <h1 className="text-2xl font-semibold mb-2"> <span className="text-red-600">▲</span> আজ দাম বেড়েছে</h1>
+      
 
-    <div className="grid grid-cols-3 gap-4">
-      <Card/>
-    </div>
-
-    <div>
-      <h1>আজ দাম বেড়েছে</h1>
-
-      <div>
-        {sortDataUp.slice(0,6).map(card => (
-           <Card>bad</Card>
-        ))}
+      <div className="grid grid-cols-3 gap-5">
+        {sortDataUp.slice(0,6).map(card => 
+          <Card key={card.id} card = {card}/>  
+        )}
 
       </div>
     </div>
+
+    <div className="mt-10">
+      <h1 className="text-2xl font-semibold mb-2"><span className="text-green-700">▼</span> আজ দাম কমেছে</h1>
+      
+
+      <div className="grid grid-cols-3 gap-5">
+        {sortDataDown.slice(0,6).map(card => 
+          <Card key={card.id} card = {card}/>  
+        )}
+
+      </div>
+    </div>
+
+    <div className="mt-10">
+      <h1 className="text-2xl font-semibold mb-2"> সব পণ্য</h1>
+      <p className="mb-2">মোট {data.length} পণ্য দেখানো হচ্ছে</p>
+      
+
+      <div className="grid grid-cols-3 gap-5">
+        {data.map(card => 
+          <Card key={card.id} card = {card}/>  
+        )}
+
+      </div>
+    </div>
+
 
     </div>
   );
