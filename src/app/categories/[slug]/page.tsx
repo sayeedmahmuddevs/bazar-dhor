@@ -1,6 +1,6 @@
 
-import Card from "@/component/Card";
 import SearchOverlay from "@/component/Overlay";
+import Sorting from "@/component/Sorting";
 import { ProductItem } from "@/ProductType";
 import Link from "next/link";
 
@@ -8,14 +8,17 @@ type PageProps = {
   params: Promise<{
     slug: string;
   }>;
+
 };
 
-async function Page({ params }: PageProps) {
+async function Page({ params}: PageProps) {
   const { slug } = await params;
   console.log(slug);
   
 
-  const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products");
+  const res = await fetch(
+    "https://openapi.programming-hero.com/api/bazardor/products",
+  );
   const data: ProductItem[] = await res.json();
 
   const filterCategories: ProductItem[] = data.filter(
@@ -41,34 +44,10 @@ async function Page({ params }: PageProps) {
           </span>
         </Link>
       </div>
-
-      <div className="flex justify-between bg-white dark:bg-gray-800 items-center mb-5 px-5 rounded-xl py-2">
-          <div className="flex gap-2 items-center mb-5 rounded-xl">
-        <div className="p-2  rounded-xl flex justify-center items-center w-20 h-20 text-4xl">
-          {filterCategories[0].image}
-        </div>
-        <div>
-          <h1 className="text-2xl font-bold ">
-            {filterCategories[0].categoryNameBn}
-          </h1>
-          <p>{filterCategories.length} টি পণ্যের আজকের দাম ও পরিবর্তন</p>
-        </div>
-      </div>
-
-      <div>
-        <select name="" id=""></select>
-
-      </div>
-
-      </div>
       
-      <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-5">
-        {filterCategories.map((pro) => (
-          <Card key={pro.id} card={pro} />
-        ))}
-      </div>
-        <SearchOverlay searchBar = {filterCategories} />
-
+      <Sorting filterCategories = {filterCategories}/>
+      
+      <SearchOverlay searchBar={filterCategories} />
     </div>
   );
 }
