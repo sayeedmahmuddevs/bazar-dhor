@@ -7,7 +7,7 @@ import { ProductItem } from "@/ProductType";
 
  export default async function Home() {
 
-     const res = await fetch ("https://api.abcz.workers.dev/api/bazardor/products");
+    const res = await fetch ("https://openapi.programming-hero.com/api/bazardor/products");
     const data : ProductItem[] = await res.json();
 
     const sortDataUp = data.filter(car => car.change.dir === "up").sort((a,b) => b.change.pct - a.change.pct )
@@ -22,13 +22,13 @@ import { ProductItem } from "@/ProductType";
   });
   return (
     <div className="mb-5">
-      <div className=" bg-white rounded-2xl mt-8 p-4 ">
-        <span className="bg-green-200 rounded-xl px-2 py-1 text-green-600">
+      <div className=" bg-white dark:bg-gray-800 rounded-2xl mt-8 p-4 ">
+        <span className="bg-green-200 dark:bg-green-600 rounded-xl px-2 py-1 text-green-600 dark:text-green-300">
           {date}
         </span>
         <div className="grid grid-cols-2">
           <div>
-            <h1 className="text-4xl font-bold mt-3 text-gray-950">
+            <h1 className="text-4xl font-bold mt-3 text-gray-950 dark:text-gray-200">
               আজকের বাজারের দাম এক নজরে
             </h1>
             <p className="text-gray-500 mt-4">
@@ -52,7 +52,7 @@ import { ProductItem } from "@/ProductType";
       <h1 className="text-2xl font-semibold mb-2"> <span className="text-red-600">▲</span> আজ দাম বেড়েছে</h1>
       
 
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-5">
         {sortDataUp.slice(0,6).map(card => 
           <Card key={card.id} card = {card}/>  
         )}
@@ -64,7 +64,7 @@ import { ProductItem } from "@/ProductType";
       <h1 className="text-2xl font-semibold mb-2"><span className="text-green-700">▼</span> আজ দাম কমেছে</h1>
       
 
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-5">
         {sortDataDown.slice(0,6).map(card => 
           <Card key={card.id} card = {card}/>  
         )}
@@ -77,7 +77,7 @@ import { ProductItem } from "@/ProductType";
       <p className="mb-2">মোট {data.length} পণ্য দেখানো হচ্ছে</p>
       
 
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-5">
         {data.map(card => 
           <Card key={card.id} card = {card}/>  
         )}

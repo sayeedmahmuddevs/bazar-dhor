@@ -29,10 +29,10 @@ function ProgressBar({product} : ProgressBarType) {
 
   return (
     <div>
-      <div className="flex justify-between items-center bg-white p-4 rounded-2xl">
+      <div className="flex justify-between items-center bg-white dark:bg-gray-700 p-4 rounded-2xl">
         <div className="flex gap-2 items-center">
           
-            <div className="bg-gray-300 p-2  rounded-xl flex justify-center items-center w-20 h-20 text-4xl">
+            <div className="bg-gray-300 dark:bg-gray-500 p-2  rounded-xl flex justify-center items-center w-20 h-20 text-4xl">
               {product?.image}
             </div>
           <div>
@@ -50,7 +50,7 @@ function ProgressBar({product} : ProgressBarType) {
           </div>
         </div>
 
-        <div className="bg-gray-200 px-5 py-3 rounded-2xl flex flex-col items-center">
+        <div className="bg-gray-200 dark:bg-gray-400 px-5 py-3 rounded-2xl flex flex-col items-center">
           <h3>আজকের দাম </h3>
           <span className="text-4xl font-bold">{product?.today}</span>
           <h3>টাকা/কেজি </h3>

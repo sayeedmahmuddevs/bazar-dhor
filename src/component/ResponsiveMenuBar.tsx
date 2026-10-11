@@ -1,0 +1,32 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+interface navLinksType {
+  product: {
+    id: string;
+    slug: string;
+    nameBn: string;
+    icon: string;
+  };
+}
+
+function ResponsiveMenuBar({ product }: navLinksType) {
+  const pathName = usePathname();
+
+  return (
+    <div
+      className={`${pathName === `/categories/${product.slug}` ? "bg-green-400" : ""} px-2 py-1 rounded-lg`}
+    >
+      <Link key={product.id} href={`/categories/${product.id}`}>
+        {" "}
+        <p>
+          {product.icon} {product.nameBn}
+        </p>
+      </Link>
+    </div>
+  );
+}
+
+export default ResponsiveMenuBar;

@@ -21,9 +21,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${notoSerifBengali.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-gray-400">
+      <body className="min-h-full flex flex-col bg-gray-400 dark:bg-gray-800">
 
-        <header className="fixed z-100 px-30 w-full bg-white border-b-3 border-gray-300 ">
+        <header className="fixed z-100 max-w-full  w-full bg-white dark:bg-gray-900 border-b-3 border-gray-300 ">
           <Header/>
         </header>
         <Marquee/>

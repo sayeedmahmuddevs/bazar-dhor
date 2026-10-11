@@ -1,7 +1,6 @@
 import PriceTable from "@/component/ProductsDetailsPage/PriceTable";
 import ProgressBar from "@/component/ProductsDetailsPage/ProgressBar";
 import { ProductItem } from "@/ProductType";
-import Image from "next/image";
 import Link from "next/link";
 
 interface paramsTypes {
@@ -12,7 +11,7 @@ interface paramsTypes {
 
 async function page({ params }: paramsTypes) {
   const { id } = await params;
-  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+  const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products");
   const data: ProductItem[] = await res.json();
 
   const singleProduct = data.find((pro) => String(pro.id) === String(id));

@@ -11,49 +11,49 @@ function PriceTable({ product }: priceTableType) {
   const price = prices.sort((a, b) => a.min - b.min);
 
   return (
-    <div className="p-4 rounded-2xl bg-white mt-5 my-5">
+    <div className="p-4 rounded-2xl bg-white dark:bg-gray-800 mt-5 my-5">
       <h1 className="text-4xl font-bold">দামের সারসংক্ষেপ</h1>
 
-      <div className="grid grid-cols-3 gap-5 mt-5">
+      <div className="grid grid-cols-3 gap-5 mt-5 dark:bg-gray-700">
 
-        <div className="bg-gray-100 rounded-2xl p-4">
-          <h3 className="text-lg font-semibold text-gray-600">সর্বনিম্ন দাম</h3>
+        <div className="bg-gray-100  dark:bg-gray-600 rounded-2xl p-4">
+          <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-200">সর্বনিম্ন দাম</h3>
           <span className="text-green-500 text-3xl font-bold">
             {price[0].min} টাকা
           </span>
-          <h3 className="text-lg font-semibold text-gray-600">
+          <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-200">
             সবচেয়ে কম দামের বাজার
           </h3>
         </div>
 
         
-          <div className="bg-gray-100 rounded-2xl p-4">
-            <h3 className="text-lg font-semibold text-gray-600">
+          <div className="bg-gray-100 dark:bg-gray-600 rounded-2xl p-4">
+            <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-200">
               সর্বাধিক দাম
             </h3>
             <span className="text-red-500 text-3xl font-bold">
               {price[price.length-1].max} টাকা
             </span>
-            <h3 className="text-lg font-semibold text-gray-600">
+            <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-200">
               সবচেয়ে বেশি দামের বাজার
             </h3>
           </div>
 
-          <div className="bg-gray-100 rounded-2xl p-4">
-            <h3 className="text-lg font-semibold text-gray-600">
+          <div className="bg-gray-100 dark:bg-gray-600 rounded-2xl p-4">
+            <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-200">
               গড় দাম
             </h3>
             <span className="text-green-500 text-3xl font-bold">
               {((price[0].max + price[price.length-1].max) / 2).toFixed() } টাকা
             </span>
-            <h3 className="text-lg font-semibold text-gray-600">
+            <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-200">
               প্রতি কেজির হিসাবে
             </h3>
           </div>
 
       </div>
 
-      <div className="m-2 rounded-2xl">
+      <div className="mt-5 rounded-2xl">
         <div className="grid grid-cols-5 text-xl font-semibold text-gray-400 border-2 border-gray-400 rounded-t-lg">
             <span className="border-r-3 px-2 py-2">বাজার</span>
             <span className="border-r-3 px-2 py-2">বিভাগ</span>
@@ -62,7 +62,7 @@ function PriceTable({ product }: priceTableType) {
             <span className="px-2 py-2 flex justify-end">গড়</span>
         </div>
         {price.map((pro, index) => 
-           <div key={index} className={`grid grid-cols-5 text-xl font-semibold text-gray-700 border-2 border-gray-700 ${price.length-1 === index ? "rounded-b-lg": ""} ${(index+1)%2 === 0 ? "bg-green-50" : ""} `}>
+           <div key={index} className={`grid grid-cols-5 text-xl font-semibold text-gray-700 dark:text-gray-300 border-2 border-gray-700 ${price.length-1 === index ? "rounded-b-lg": ""} ${(index+1)%2 === 0 ? "bg-green-50 dark:bg-gray-700" : ""} `}>
             <span className="border-r-3 px-2 py-2">{pro.market}</span>
             <span className="border-r-3 px-2 py-2">{pro.division}</span>
             <span className="border-r-3 px-2 py-2 flex justify-end">{pro.min} টাকা</span>

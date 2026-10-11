@@ -12,7 +12,7 @@ async function page({ params }: PageProps) {
   const { slug } = await params;
   console.log(slug);
 
-  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+  const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products");
   const data: ProductItem[] = await res.json();
   const filterCategories: ProductItem[] = data.filter(
     (pro) => pro.category === slug,
@@ -36,7 +36,7 @@ async function page({ params }: PageProps) {
         </Link>
       </div>
 
-      <div className="flex justify-between bg-white items-center mb-5 px-5 rounded-xl py-2">
+      <div className="flex justify-between bg-white dark:bg-gray-800 items-center mb-5 px-5 rounded-xl py-2">
           <div className="flex gap-2 items-center mb-5 rounded-xl">
         <div className="p-2  rounded-xl flex justify-center items-center w-20 h-20 text-4xl">
           {filterCategories[0].image}

@@ -14,7 +14,6 @@ interface navLinksType {
 
 function NavLinks({ product }: navLinksType) {
   const pathName = usePathname();
-  console.log(pathName);
 
   return (
     <div
