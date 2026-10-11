@@ -4,9 +4,9 @@ import "./globals.css";
 import Header from "@/component/Header";
 import Marquee from "@/component/Marquee";
 import Footer from "@/component/Footer";
+import Context from "@/context/contextApi";
 
 const notoSerifBengali = Noto_Serif_Bengali({
-  
   subsets: ["latin", "bengali"],
 });
 
@@ -22,24 +22,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${notoSerifBengali.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-gray-400 dark:bg-gray-800">
+        <Context>
+          <header className="fixed z-100 max-w-full  w-full bg-white dark:bg-gray-900 border-b-3 border-gray-300 ">
+            <Header />
+          </header>
+          <Marquee />
 
-        <header className="fixed z-100 max-w-full  w-full bg-white dark:bg-gray-900 border-b-3 border-gray-300 ">
-          <Header/>
-        </header>
-        <Marquee/>
+          <main className="bg-gray-100 dark:bg-gray-800 mt-2">
+            <div className="max-w-7xl mx-auto w-full">{children}</div>
+          </main>
 
-
-      <main className="bg-gray-100 dark:bg-gray-800 mt-2">
-        <div className="max-w-7xl mx-auto w-full">
-          {children}
-
-        </div>
-      </main>
-
-      <footer>
-        <Footer/>
-      </footer>
-
+          <footer>
+            <Footer />
+          </footer>
+        </Context>
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 import Card from "@/component/Card";
 import Image from "next/image";
 import { ProductItem } from "@/ProductType";
+import SearchOverlay from "@/component/Overlay";
 
 
 
@@ -9,6 +10,7 @@ import { ProductItem } from "@/ProductType";
 
     const res = await fetch ("https://openapi.programming-hero.com/api/bazardor/products");
     const data : ProductItem[] = await res.json();
+
 
     const sortDataUp = data.filter(car => car.change.dir === "up").sort((a,b) => b.change.pct - a.change.pct )
     const sortDataDown = data.filter(car => car.change.dir === "down").sort((a,b) => b.change.pct - a.change.pct)
@@ -48,6 +50,8 @@ import { ProductItem } from "@/ProductType";
       </div>
 
 
+
+
     <div className="mt-10">
       <h1 className="text-2xl font-semibold mb-2"> <span className="text-red-600">▲</span> আজ দাম বেড়েছে</h1>
       
@@ -71,6 +75,8 @@ import { ProductItem } from "@/ProductType";
 
       </div>
     </div>
+
+    <SearchOverlay searchBar={data} />
 
     <div className="mt-10">
       <h1 className="text-2xl font-semibold mb-2"> সব পণ্য</h1>

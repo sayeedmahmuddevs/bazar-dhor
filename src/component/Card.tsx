@@ -4,7 +4,7 @@ interface CardType {
   card: ProductItem
 }
 
-async function Card({ card }: CardType) {
+ function Card({ card }: CardType) {
   return (
     <Link href={`/products/${card.id}`}>
         <div className="bg-white dark:bg-gray-700 p-4 rounded-3xl">

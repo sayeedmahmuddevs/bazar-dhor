@@ -41,7 +41,7 @@ function Header() {
         {/* mobilemenu */}
         <div 
         onClick={() => setMenuShow(!menuShow)}
-        className="md:hidden cursor-pointer">☰</div>
+        className="md:hidden cursor-pointer">{menuShow? "🗙": "☰"} </div>
       </div>
       
           <NavBar menuShow = {menuShow} />

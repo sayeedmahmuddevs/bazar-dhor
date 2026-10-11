@@ -1,4 +1,6 @@
+
 import Card from "@/component/Card";
+import SearchOverlay from "@/component/Overlay";
 import { ProductItem } from "@/ProductType";
 import Link from "next/link";
 
@@ -8,15 +10,19 @@ type PageProps = {
   }>;
 };
 
-async function page({ params }: PageProps) {
+async function Page({ params }: PageProps) {
   const { slug } = await params;
   console.log(slug);
+  
 
   const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products");
   const data: ProductItem[] = await res.json();
+
   const filterCategories: ProductItem[] = data.filter(
     (pro) => pro.category === slug,
   );
+
+  
 
   console.log(filterCategories);
 
@@ -49,17 +55,22 @@ async function page({ params }: PageProps) {
         </div>
       </div>
 
-      <div>klfsjdal</div>
+      <div>
+        <select name="" id=""></select>
+
+      </div>
 
       </div>
       
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-5">
         {filterCategories.map((pro) => (
           <Card key={pro.id} card={pro} />
         ))}
       </div>
+        <SearchOverlay searchBar = {filterCategories} />
+
     </div>
   );
 }
 
-export default page;
+export default Page;
