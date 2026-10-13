@@ -9,7 +9,7 @@ function page() {
   const onSubmit = async( e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault()
         const formData = new FormData(e.currentTarget)
-        const user = Object.fromEntries(formData.entries()) as {name: string; email: string; password: string}
+        const user = Object.fromEntries(formData.entries()) as { email: string; password: string}
   
         
         const {data, error} = await authClient.signIn.email({

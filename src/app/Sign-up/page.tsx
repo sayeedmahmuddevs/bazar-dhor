@@ -34,7 +34,9 @@ function page() {
           <label className="label">Name</label>
           <input type="text" name="name" className="input" placeholder="Name" />
 
-
+          <label className="label">Image</label>
+          <input type="text" name="image" className="input" placeholder="Image Link" />
+          
           <label className="label">Email</label>
           <input type="email" name="email" className="input" placeholder="Email" />
 
