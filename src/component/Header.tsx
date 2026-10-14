@@ -5,7 +5,6 @@ import NavBar from "./NavBar";
 import Link from "next/link";
 import Button from "./Button";
 import { useState } from "react";
-import { authClient } from "@/lib/auth-client";
 
 function Header() {
   const [menuShow, setMenuShow] = useState(false);
@@ -15,11 +14,7 @@ function Header() {
     month: "long",
     year: "numeric",
     timeZone: "Asia/Dhaka",
-  }).format(new Date());
-
-   const session = authClient.useSession();
-    const user = session.data?.user;
-  
+  }).format(new Date());  
 
   return (
     <div className="relative mx-auto w-full max-w-7xl px-2 pt-2">

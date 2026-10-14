@@ -24,7 +24,7 @@ interface CardType {
           <span className="font-semibold text-2xl">{card.today}</span> {" "}
           <span>টাকা</span>
         </div>
-        <span className="bg-gray-300 dark:bg-gray-500 px-2 py-1 rounded-lg">{card.change.pct===0? <span className="text-blue-700"> ▬ {card.change.pct} % </span>: card.change.pct < 0 ? <span className="text-green-700">▼ {Math.abs(card.change.pct)} % </span> : <span className="text-red-600 dark:text-red-500">▲  {Math.abs(card.change.pct)} % </span>} </span>
+        <span className="bg-gray-300 dark:bg-gray-500 px-2 py-1 rounded-lg">{card.change.pct===0? <span className="text-blue-500"> ▬ {card.change.pct} % </span>: card.change.pct < 0 ? <span className="text-green-500">▼ {Math.abs(card.change.pct)} % </span> : <span className="text-red-500 dark:text-red-300">▲  {Math.abs(card.change.pct)} % </span>} </span>
       </div>
     </div>
     </Link>

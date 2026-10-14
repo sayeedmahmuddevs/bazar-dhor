@@ -5,8 +5,10 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
 
-function page() {
+
+function signUpPage() {
   const onSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -38,6 +40,12 @@ function page() {
 
     console.log(data);
   };
+
+    const handleGithubLogin = async () => {
+      await authClient.signIn.social({
+        provider: "github"
+      })
+    }
 
 
   return (
@@ -105,8 +113,8 @@ function page() {
                      <FaGoogle/>{" "} লগইন করুন গুগল দিয়ে
                   </button>
         
-                  <button onClick={handleGoogleLogIn} className="border rounded-md px-2 py-1 flex gap-2 items-center hover:bg-gray-600 ">
-                     <FaGoogle/>{" "} লগইন করুন গিটহাব দিয়ে
+                  <button onClick={handleGithubLogin} className="border rounded-md px-2 py-1 flex gap-2 items-center hover:bg-gray-600 ">
+                     <FaGithub/>{" "} লগইন করুন গিটহাব দিয়ে
                   </button>
                 </div>
 
@@ -134,4 +142,4 @@ function page() {
   );
 }
 
-export default page;
+export default signUpPage;

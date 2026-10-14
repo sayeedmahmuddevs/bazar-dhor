@@ -22,8 +22,13 @@ export const auth = betterAuth({
     google: {
       clientId : process.env.CLIENT_GOOGLE_ID as string,
       clientSecret : process.env.CLEINT_GOOGLE_SECRETE as string,
+    },
+    github: {
+      clientId :  process.env.CLIENT_GITHUB_ID as string,
+      clientSecret : process.env.CLIENT_GITHUB_SECRETE as string,
     }
   },
+
 
 
   database: mongodbAdapter(db, {

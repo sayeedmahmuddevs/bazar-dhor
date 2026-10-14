@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+
 function Button() {
   const session = authClient.useSession();
   const user = session.data?.user;
@@ -14,6 +15,7 @@ function Button() {
   const handlSignOut = () => {
       authClient.signOut()
       setProfileShow(!profileShow)
+
 
   }
 
@@ -82,6 +84,8 @@ function Button() {
 
             {/* Sign Out */}
 
+            <Link href={"/"}>
+
             <button 
             onClick={handlSignOut}
             className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-red-500 transition-all duration-200 hover:bg-red-50 hover:text-red-600">
@@ -100,11 +104,12 @@ function Button() {
                 <path d="M16 17l5-5-5-5" />
                 <path d="M21 12H9" />
               </svg>
-                <Link href={"/"}>
+                
                   Sign Out
-                </Link>
+                
               
             </button>
+            </Link>
           </div>
         </div>
       ) : (
