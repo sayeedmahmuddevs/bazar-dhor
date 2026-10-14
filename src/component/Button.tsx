@@ -7,15 +7,14 @@ import { useState } from "react";
 
 function Button() {
   const session = authClient.useSession();
-  
-
-
   const user = session.data?.user;
 
   const [profileShow, setProfileShow] = useState(false)
 
   const handlSignOut = () => {
       authClient.signOut()
+      setProfileShow(!profileShow)
+
   }
 
   return (
@@ -27,7 +26,7 @@ function Button() {
               <div className="ring-primary ring-offset-base-100 rounded-full ring-2 ring-offset-2">
                 <Image
                   alt="Tailwind-CSS-Avatar-component"
-                  src={user.image}
+                  src={user?.image || "https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg"}
                   width={20}
                   height={20}
                   className="w-6 h-6"
@@ -46,6 +45,11 @@ function Button() {
             absolute top-10 left-0 z-[110] w-40 overflow-hidden rounded-2xl border border-gray-200 bg-white p-2 shadow-xl shadow-black/10`}>
             
             {/* Settings */}
+            <h3 className="text-gray-600 font-bold mb-3">
+              {user.name}
+              <hr />
+            </h3>
+
             <Link href={"/profile"}>
                 <button 
                 onClick={()=> setProfileShow(!profileShow)}
@@ -77,6 +81,7 @@ function Button() {
             <div className="my-1 border-t border-gray-100" />
 
             {/* Sign Out */}
+
             <button 
             onClick={handlSignOut}
             className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-red-500 transition-all duration-200 hover:bg-red-50 hover:text-red-600">
@@ -95,7 +100,10 @@ function Button() {
                 <path d="M16 17l5-5-5-5" />
                 <path d="M21 12H9" />
               </svg>
-              Sign Out
+                <Link href={"/"}>
+                  Sign Out
+                </Link>
+              
             </button>
           </div>
         </div>

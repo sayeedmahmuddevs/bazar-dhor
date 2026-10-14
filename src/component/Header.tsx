@@ -1,50 +1,67 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import NavBar from "./NavBar";
 import Link from "next/link";
 import Button from "./Button";
 import { useState } from "react";
+import { authClient } from "@/lib/auth-client";
 
 function Header() {
-  const date = new Date().toLocaleDateString("bn-BD", {
-    weekday: "long",
-    year: "numeric",
+  const [menuShow, setMenuShow] = useState(false);
+
+  const date = new Intl.DateTimeFormat("bn-BD", {
     day: "numeric",
     month: "long",
-  });
+    year: "numeric",
+    timeZone: "Asia/Dhaka",
+  }).format(new Date());
 
-  const [menuShow, setMenuShow] = useState(false)
-  console.log(menuShow)
+   const session = authClient.useSession();
+    const user = session.data?.user;
+  
 
   return (
-    <div className="max-w-7xl mx-auto px-2 w-full pt-2 relative ">
-      <div className="flex justify-between items-center">
-        <div className="flex gap-2">
+    <div className="relative mx-auto w-full max-w-7xl px-2 pt-2">
+      <div className="flex items-center justify-between">
+        {/* Logo and title */}
+        <div className="flex items-center gap-2">
           <Link href="/">
-            <div className="bg-green-400 p-2  rounded-xl flex justify-center items-center w-13 h-13">
-              <Image src="/logo-icon.png" alt="Logo" width={50} height={50} />
+            <div className="flex h-13 w-13 items-center justify-center rounded-xl bg-green-400 p-2">
+              <Image
+                src="/logo-icon.png"
+                alt="Logo"
+                width={50}
+                height={50}
+                priority
+              />
             </div>
           </Link>
+
           <div>
-            <h1 className="text-2xl font-bold ">বাজার ধর</h1>
-            <p>{date}</p>
+            <h1 className="text-2xl font-bold">বাজার ধর</h1>
+            <p className="text-sm text-gray-500">{date}</p>
           </div>
         </div>
 
-        {/* button */}
+        {/* Desktop button */}
         <div className="hidden md:block">
           <Button />
-
         </div>
 
-        {/* mobilemenu */}
-        <div 
-        onClick={() => setMenuShow(!menuShow)}
-        className="md:hidden cursor-pointer">{menuShow? "🗙": "☰"} </div>
+        {/* Mobile menu toggle */}
+        <button
+          type="button"
+          onClick={() => setMenuShow((prev) => !prev)}
+          className="rounded-lg p-2 text-2xl transition hover:bg-gray-100 md:hidden"
+          aria-label={menuShow ? "Close menu" : "Open menu"}
+          aria-expanded={menuShow}
+        >
+          {menuShow ? "✕" : "☰"}
+        </button>
       </div>
-      
-          <NavBar menuShow = {menuShow} />
+       <NavBar menuShow={menuShow} />
+    
 
     </div>
   );

@@ -5,6 +5,8 @@ import Header from "@/component/Header";
 import Marquee from "@/component/Marquee";
 import Footer from "@/component/Footer";
 import Context from "@/context/contextApi";
+import { Toaster } from "react-hot-toast";
+import { Suspense } from "react";
 
 const notoSerifBengali = Noto_Serif_Bengali({
   subsets: ["latin", "bengali"],
@@ -26,8 +28,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <header className="fixed z-100 max-w-full  w-full bg-white dark:bg-gray-900 border-b-3 border-gray-300 ">
             <Header />
           </header>
-          <Marquee />
 
+          <Suspense
+            fallback={
+              <div className="mt-20 h-10 animate-pulse rounded-lg bg-gray-100 md:mt-35" />
+            }
+          >
+            <Marquee />
+          </Suspense>
+
+          <Toaster position="top-center" reverseOrder={false} />
           <main className="bg-gray-100 dark:bg-gray-800 mt-2">
             <div className="max-w-7xl mx-auto w-full">{children}</div>
           </main>
