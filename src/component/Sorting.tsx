@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ProductItem } from "@/ProductType";
 import Card from "@/component/Card";
+import { ChevronDown } from "lucide-react";
 
 type SortValue = "default" | "price_asc" | "price_desc";
 
@@ -66,7 +67,7 @@ function Sorting({ filterCategories }: SortType) {
             }
             className="w-full rounded-xl border border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-600 outline-none transition focus:border-green-400 focus:ring-2 focus:ring-green-100"
           >
-            <option value="default">ডিফল্ট</option>
+            <option value="default">ডিফল্ট <span className="text-2xl"><ChevronDown/></span></option>
             <option value="price_asc">কম থেকে বেশি দাম</option>
             <option value="price_desc">বেশি থেকে কম দাম</option>
           </select>
