@@ -100,11 +100,11 @@ function signInPage() {
         </div>
 
         <div className="flex gap-2">
-          <p>অ্যাকাউন্ট আছে?</p>
+          <p>অ্যাকাউন্ট নেই?</p>
           <div>
-            <Link href={"/sign-in"}>
+            <Link href={"/sign-up"}>
               <button className="hover:underline text-green-400">
-                সাইন ইন করুন
+                সাইন আপ করুন
               </button>
             </Link>
           </div>
