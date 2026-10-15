@@ -28,9 +28,8 @@ function signInPage() {
       return;
     }
     if (data) {
-      console.log(data);
       toast("Successful log in");
-      redirect("/");
+      window.location.replace("/");
     }
   };
 

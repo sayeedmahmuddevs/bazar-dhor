@@ -24,6 +24,7 @@ function ProfilePage() {
 
     toast.success("update successfull")
 
+
   }
 
   

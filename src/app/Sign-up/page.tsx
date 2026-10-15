@@ -29,7 +29,7 @@ function signUpPage() {
     if (data) {
       console.log(data);
       toast("Account created successfully! ✅");
-      redirect("/");
+      window.location.replace("/");
     }
   };
 
