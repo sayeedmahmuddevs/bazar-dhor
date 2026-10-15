@@ -23,7 +23,7 @@ function MarketStates({data} : marketStateType) {
     <div>
 
         {user?
-        <div className="flex gap-2 justify-center">
+        <div className="flex gap-2 justify-center ">
             <div className="bg-gray-200 dark:bg-gray-400 px-5 py-3 rounded-2xl flex flex-col items-center flex-wrap">
               <h3>পণ্য</h3>
               <span className="font-bold"><span className="text-4xl font-bold text-green-500">{data.length}</span> টি</span>

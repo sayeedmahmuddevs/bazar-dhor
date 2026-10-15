@@ -30,7 +30,7 @@ export default async function Home() {
         <span className="bg-green-200 dark:bg-green-600 rounded-xl px-2 py-1 text-green-600 dark:text-green-300">
           {date}
         </span>
-        <div className="grid grid-cols-2">
+        <div className="grid md:grid-cols-2">
           <div>
             <h1 className="text-4xl font-bold mt-3 text-gray-950 dark:text-gray-200">
               আজকের বাজারের দাম এক নজরে
