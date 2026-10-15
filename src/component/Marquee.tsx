@@ -18,7 +18,7 @@ async function Marquee() {
             <Link key={card.id} href={`/products/${card.id}`}>
               <p>
                 <span className="px-2 py-1 rounded-lg hover:underline">
-                  {card.categoryIcon} {card.nameBn}{" "}
+                  {card.categoryIcon} {card.nameBn}{" "} {card.today} টাকা/কেজি
                   {card.change.pct < 0 ? (
                     <span className="text-green-700">
                       ▼ {Math.abs(card.change.pct)} %{" "}

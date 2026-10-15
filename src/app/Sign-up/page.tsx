@@ -28,12 +28,7 @@ function signUpPage() {
     }
     if(data){
       toast("Account created successfully! ✅");
-      // I’m doing this because after signing up, when I click on a page, it redirects me back to the sign-in page. 
-      // However, if I reload the page, everything works correctly. It doesn’t work without reloading. 
-      // So, I want the page to reload automatically one second after the initial page load is complete.
-       setTimeout(() => {
-        window.location.replace("/");
-      }, 1000);
+      redirect("/")
 
     }
     
