@@ -12,7 +12,7 @@ interface navLinksType {
   };
 }
 
-function NavLinks({ product }: navLinksType) {
+function  NavLinks({ product }: navLinksType) {
   const pathName = usePathname();
 
   return (

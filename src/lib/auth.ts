@@ -8,7 +8,7 @@ import { mongodbAdapter } from "@better-auth/mongo-adapter";
 const MONGODB_URL = process.env.BETTER_MONGODB_URL
 
 if (!MONGODB_URL) {
-  throw new Error("Missing MONGODB_URI environment variable");
+  throw Error("Missing MONGODB_URI environment variable");
 }
 
 const client  = new MongoClient(MONGODB_URL);
