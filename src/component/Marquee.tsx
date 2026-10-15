@@ -14,6 +14,7 @@ async function Marquee() {
       <MarqueeText>
         <div className="flex gap-10 md:mt-35 mt-20 ">
           {data.map((card) => (
+
             <Link key={card.id} href={`/products/${card.id}`}>
               <p>
                 <span className="px-2 py-1 rounded-lg hover:underline">
@@ -30,6 +31,7 @@ async function Marquee() {
                 </span>
               </p>
             </Link>
+            
           ))}
         </div>
       </MarqueeText>

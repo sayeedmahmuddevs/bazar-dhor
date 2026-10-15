@@ -14,7 +14,7 @@ function MarketStates({data} : marketStateType) {
     const session = authClient.useSession()
     const user = session.data?.user
 
-      const division = data[0].markets
+      const division = data[0]?.markets
   const uniqueUsers = [
   ...new Map(division.map(user => [user.division, user])).values()
 ];

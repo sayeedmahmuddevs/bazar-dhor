@@ -19,7 +19,7 @@ function PriceTable({ product }: priceTableType) {
         <div className="bg-gray-100  dark:bg-gray-600 rounded-2xl p-4">
           <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-200">সর্বনিম্ন দাম</h3>
           <span className="text-green-500 text-3xl font-bold">
-            {price[0].min} টাকা
+            {price[0]?.min} টাকা
           </span>
           <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-200">
             সবচেয়ে কম দামের বাজার
@@ -32,7 +32,7 @@ function PriceTable({ product }: priceTableType) {
               সর্বাধিক দাম
             </h3>
             <span className="text-red-500 text-3xl font-bold">
-              {price[price.length-1].max} টাকা
+              {price[price.length-1]?.max} টাকা
             </span>
             <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-200">
               সবচেয়ে বেশি দামের বাজার
@@ -44,7 +44,7 @@ function PriceTable({ product }: priceTableType) {
               গড় দাম
             </h3>
             <span className="text-green-500 text-3xl font-bold">
-              {((price[0].max + price[price.length-1].max) / 2).toFixed() } টাকা
+              {((price[0]?.max + price[price.length-1]?.max) / 2).toFixed() } টাকা
             </span>
             <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-200">
               প্রতি কেজির হিসাবে
