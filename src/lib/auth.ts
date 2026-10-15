@@ -5,13 +5,13 @@ import { mongodbAdapter } from "@better-auth/mongo-adapter";
 
 
 
-const MONGODB_URI = process.env.BETTER_MONGODB_URL as string
+const MONGODB_URL = process.env.BETTER_MONGODB_URL
 
-if (!MONGODB_URI) {
+if (!MONGODB_URL) {
   throw new Error("Missing MONGODB_URI environment variable");
 }
 
-const client  = new MongoClient(MONGODB_URI);
+const client  = new MongoClient(MONGODB_URL);
 const db = client.db("bazar_dhor");
 
 export const auth = betterAuth({
