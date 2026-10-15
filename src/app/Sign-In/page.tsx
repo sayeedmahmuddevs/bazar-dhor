@@ -29,7 +29,7 @@ function signInPage() {
     }
     if (data) {
       toast("Successful log in");
-      window.location.replace("/");
+      redirect("/");
     }
   };
 
